@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import LogoTitle from '../../assets/images/logo-s.png'
+import LogoTitle from '../../assets/images/logo-r.png'
 import AnimatedLetters from '../AnimatedLetters'
+import Logo from './Logo'
 import './index.scss'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const nameArray = ['r', 'o', 'b', 'e', 'r', 't']
+  const nameArray = ['o', 'b', 'e', 'r', 't']
   const jobArray = [
     'w',
     'e',
@@ -24,6 +25,12 @@ const Home = () => {
     '.',
   ]
 
+  useEffect(() => {
+    return setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 4000)
+  }, [])
+
   return (
     <div className="container home-page">
       <div className="text-zone">
@@ -31,8 +38,8 @@ const Home = () => {
           <span className={letterClass}>H</span>
           <span className={`${letterClass} _12`}>i</span>
           <br />
-          <span className={`${letterClass} _12`}>I</span>
-          <span className={`${letterClass} _12`}>'m</span>
+          <span className={`${letterClass} _13`}>I</span>
+          <span className={`${letterClass} _14`}>'m</span>
           <img src={LogoTitle} alt="developer" />
           <AnimatedLetters
             letterClass={letterClass}
@@ -51,6 +58,7 @@ const Home = () => {
           Contact Me
         </Link>
       </div>
+      <Logo />
     </div>
   )
 }
