@@ -8,8 +8,18 @@ import {
   faReact,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useState } from 'react'
+import Loader from 'react-loaders'
 
 const About = () => {
+  const [letterClass, setLetterClass] = useState('text-animate')
+
+  useEffect(() => {
+    return setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 3000)
+  }, [])
+
   return (
     <div className="container about-page">
       <div className="text-zone">
@@ -47,6 +57,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Loader type="pacman" />
     </div>
   )
 }
